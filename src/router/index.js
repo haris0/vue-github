@@ -1,19 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Homepage from '@/components/Homepage'
-import { MdButton, MdField} from 'vue-material/dist/components'
-import 'vue-material/dist/vue-material.min.css'
-import 'vue-material/dist/theme/default.css'
+import Profile from '@/components/Profile'
 
-Vue.use(MdButton)
-Vue.use(MdField)
 Vue.use(Router)
 export default new Router({
+  mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '*',
       name: 'Homepage',
       component: Homepage
+    },
+    { 
+      path: '/profile/:id',
+      component: Profile
     }
   ]
 })

@@ -36,7 +36,7 @@
     },
     methods:{
       goToProfile: function(){
-        console.log(self.id)
+        this.$router.push('/profile/'+self.id)
       }
     }
   }
@@ -51,10 +51,10 @@
     justify-content:center;
   }
   .search{
-    width: 75%;
+    width: 70%;
   }
   .search-title{
-    margin: 20px;
+    margin: 15px;
     text-align: center;
     font-size: 30px;
     font-family: monospace;
