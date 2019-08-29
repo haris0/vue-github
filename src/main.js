@@ -3,13 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import { MdButton, MdField, MdToolbar} from 'vue-material/dist/components'
+import { MdButton, MdField, MdToolbar, MdEmptyState} from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
 Vue.use(MdButton)
 Vue.use(MdField)
 Vue.use(MdToolbar)
+Vue.use(MdEmptyState)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
