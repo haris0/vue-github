@@ -6,10 +6,11 @@
           Github Search
         </span>
       </div>      
-      <md-field>
+      <md-field :class="messageClass">
         <label>Github id</label>
-        <md-input v-model="id"></md-input>
+        <md-input @keyup.enter="goToProfile" @click="onInputClick" v-model="id"></md-input>
         <md-icon>search</md-icon>
+        <span class="md-error">Cannot be empty</span>
       </md-field>
       <div class="search-button">
         <md-button @click="goToProfile" class="md-dense md-raised md-primary button-search">Search</md-button>
@@ -29,14 +30,27 @@
     },
     mounted(){
     },
-    data() {
-      return {
-        id:""
+    data:()=>({
+      id:"",
+      hasMessages: false
+    }),
+    computed: {
+      messageClass () {
+        return {
+          'md-invalid': this.hasMessages
+        }
       }
     },
     methods:{
       goToProfile: function(){
-        this.$router.push('/profile/'+self.id)
+        if(self.id == ""){
+          self.hasMessages= true;
+        }else{
+          this.$router.push('/profile/'+self.id)
+        }
+      },
+      onInputClick: function(){
+        self.hasMessages= false;
       }
     }
   }

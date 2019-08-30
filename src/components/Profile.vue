@@ -15,11 +15,11 @@
             md-icon="highlight_off"
             md-label="Not Font"
             md-description="The github account you are looking for was not found, please try again">
-            <md-button class="md-primary md-raised">Back to Home</md-button>
+            <md-button class="md-primary md-raised button-back" @click="goBack">Back to Home</md-button>
           </md-empty-state>
         </div>
         <div v-else>
-          <md-subheader>Profile</md-subheader>
+          <md-subheader class="header">Profile</md-subheader>
           <md-card>
             <md-card-header>
               <md-avatar>
@@ -71,14 +71,12 @@
       self.id = self.$route.params.id
       self.getProfile()
     },
-    data(){
-      return {
-        id: "",
-        profile: null,
-        repos: [],
-        isLoading: true
-      }
-    },
+    data:()=>({
+      id: "",
+      profile: null,
+      repos: [],
+      isLoading: true
+    }),
     methods:{
       getProfile : async() => {
         try{
@@ -105,6 +103,11 @@
       },
       goToProject: function(path){
         this.$router.push('/'+self.id+'/'+path)
+      },
+      goBack: function(){
+        window.history.length > 1
+        ? this.$router.go(-1)
+        : this.$router.push('/')
       }
     }
   }
@@ -122,21 +125,27 @@
   .list-project{
     margin-bottom: 10px;
   }
+  .header{
+    margin-top: 10px;
+  }
+  .button-back{
+    background-color: gray !important;
+  }
   @media (max-width: 600px) {
     .container{
-      margin: 5px 10px;
+      margin: 0px 10px;
     }
   }
 
   @media (max-width: 1024px) and (min-width: 601px) {
     .container{
-      margin: 10px 50px;
+      margin: 0px 50px;
     }
   }
 
   @media (min-width: 1025px) {
     .container{
-      margin: 10px 20%;
+      margin: 0px 20%;
     }
   }
 </style>

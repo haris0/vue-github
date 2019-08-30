@@ -32,13 +32,11 @@ import config from '../services/config'
       self.path = self.$route.params.path
       self.getReadmeHtml();
     },
-    data() {
-      return {
-        id : "",
-        path : "",
-        rawReadme : ""
-      }
-    },
+    data:()=>({
+      id : "",
+      path : "",
+      rawReadme : ""
+    }),
     methods:{
       getReadmeHtml : async() => {
         try{
