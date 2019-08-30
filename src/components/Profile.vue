@@ -34,7 +34,7 @@
           </md-card>
           
           <md-subheader>Project</md-subheader>
-          <div v-for="repo in repos" v-bind:key="repo.full_name" class="list-project">
+          <div v-for="repo in repos" v-bind:key="repo.full_name" @click="goToProject(repo.name)" class="list-project">
             <md-card md-with-hover>
               <md-ripple>
                 <md-card-header>
@@ -102,6 +102,9 @@
         }catch(error){
           console.log(error.response);
         }
+      },
+      goToProject: function(path){
+        this.$router.push('/'+self.id+'/'+path)
       }
     }
   }

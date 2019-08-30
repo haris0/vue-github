@@ -2,7 +2,7 @@
   "name": "vue-github",
   "version": "1.0.0",
   "description": "application that displays a user’s GitHub projects and lets you view the project’s README",
-  "author": "haris0 <hari.surrisyad@gmail.com>>",
+  "author": "haris0 <hari.surrisyad@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
