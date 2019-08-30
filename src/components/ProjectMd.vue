@@ -4,7 +4,14 @@
       <h3 class="md-title" style="flex: 1">{{id}}/{{path}}</h3>
     </md-toolbar>
     <div class="container">
-        <div></div>
+      <md-card>
+        <md-card-content>
+          <vue-simple-markdown :source="rawReadme"></vue-simple-markdown>
+        </md-card-content>
+        </md-card>
+      <div>
+        
+      </div>
     </div>
   </div>
 </template>
@@ -53,19 +60,19 @@ import config from '../services/config'
   }
   @media (max-width: 600px) {
     .container{
-      margin: 5px 10px;
+      margin: 0px 10px;
     }
   }
 
   @media (max-width: 1024px) and (min-width: 601px) {
     .container{
-      margin: 10px 50px;
+      margin: 0px 50px;
     }
   }
 
   @media (min-width: 1025px) {
     .container{
-      margin: 10px 20%;
+      margin: 0px 20%;
     }
   }
 </style>

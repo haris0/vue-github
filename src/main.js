@@ -16,7 +16,10 @@ import {MdButton,
         }from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
+import VueSimpleMarkdown from 'vue-simple-markdown'
+import 'vue-simple-markdown/dist/vue-simple-markdown.css'
 
+Vue.use(VueSimpleMarkdown)
 Vue.use(MdButton)
 Vue.use(MdField)
 Vue.use(MdToolbar)
