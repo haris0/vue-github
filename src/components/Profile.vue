@@ -58,6 +58,7 @@
 
 <script>
   import config from '../services/config'
+  import {mapGetters} from 'vuex'
   import { async } from 'q';
 
   let self;
@@ -69,38 +70,17 @@
     },
     mounted(){
       self.id = self.$route.params.id
-      self.getProfile()
+      self.$store.dispatch('GET_PROFILE', self.id)
     },
     data:()=>({
       id: "",
-      profile: null,
-      repos: [],
-      isLoading: true
     }),
+    computed : {
+      ...mapGetters(['profile']),
+      ...mapGetters(['repos']),
+      ...mapGetters(['isLoading']),
+    },
     methods:{
-      getProfile : async() => {
-        try{
-          let response = await config.HTTP.get(config.getProfile+self.id)
-          self.isLoading = false;
-          console.log(self.profile)
-          self.profile = response.data;
-          console.log(self.profile);
-          self.getRepos();
-        }catch(error){
-          self.isLoading = false;
-          console.log(error.response);
-        }
-      },
-      getRepos : async() => {
-        try{
-          let response = await config.HTTP.get(self.profile.repos_url)
-          console.log(self.repos)
-          self.repos = response.data;
-          console.log(self.repos);
-        }catch(error){
-          console.log(error.response);
-        }
-      },
       goToProject: function(path){
         this.$router.push('/'+self.id+'/'+path)
       },
