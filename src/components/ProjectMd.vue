@@ -18,6 +18,7 @@
 
 <script>
 import { async } from 'q';
+import {mapGetters} from 'vuex'
 import config from '../services/config'
 
   let self;
@@ -30,23 +31,16 @@ import config from '../services/config'
     mounted(){
       self.id = self.$route.params.id
       self.path = self.$route.params.path
-      self.getReadmeHtml();
+      self.$store.dispatch('GET_READMEMD', {id :self.id, path : self.path})
     },
     data:()=>({
       id : "",
       path : "",
-      rawReadme : ""
     }),
+    computed:{
+      ...mapGetters(['rawReadme']),
+    },
     methods:{
-      getReadmeHtml : async() => {
-        try{
-          let response = await config.README.get(self.id+"/"+self.path+"/"+config.getReadmeHtml)
-          console.log(response)
-          self.rawReadme = response.data
-        }catch(error){
-          console.log(error.response);
-        }
-      }
     }
   }
 

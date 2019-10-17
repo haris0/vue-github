@@ -24,11 +24,13 @@ export default new Router({
     },
     { 
       path: '/profile/:id',
+      name: 'Profile',
       component: Profile,
       // beforeEnter : ifAuthenticated
     },
     { 
       path: '/:id/:path',
+      name: 'ProjectMd',
       component: ProjectMd,
       // beforeEnter : ifAuthenticated
     }

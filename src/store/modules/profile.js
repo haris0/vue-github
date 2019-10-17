@@ -23,8 +23,11 @@ export default {
   },
   actions : {
     GET_PROFILE : async (context, id) => {
+      context.commit('CHANGE_LOADING', true)
+      context.commit('SET_PROFILE', null)
       try{
         let response = await config.HTTP.get(config.getProfile+id)
+        console.log(response)
         context.commit('CHANGE_LOADING', false)
         context.commit('SET_PROFILE', response.data)
         context.dispatch('GET_REPOS', response.data.repos_url)
@@ -34,8 +37,10 @@ export default {
       }
     },
     GET_REPOS : async (context, repos_url) => {
+      context.commit('SET_REPOS',[])
       try{
         let response = await config.HTTP.get(repos_url)
+        console.log(response)
         context.commit('SET_REPOS',response.data)
       }catch(error){
         console.log(error.response);
