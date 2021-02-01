@@ -1,6 +1,6 @@
 # vue-github
 
-Application to displays a user’s GitHub projects and lets you view the project’s README. This project developed using Vue Js. You can see the demo application at [VueGithub](http://vue-github.surge.sh/)
+Application to displays a user’s GitHub projects and lets you view the project’s README. This project developed using Vue Js. You can see the demo application at [VueGithub](https://vue-github.netlify.app/)
 
 ## Build Setup
 
